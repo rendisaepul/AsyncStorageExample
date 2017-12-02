@@ -65,6 +65,17 @@ export default class App extends Component {
     }
   }
 
+  testAsyncCronous = () => {
+    AsyncStorage.getItem('profile')
+      .then((res) => {
+        const profile = JSON.parse(res);
+        console.log('response AsyncCronous', profile);
+      })
+      .catch((err) => {
+        console.log('eror', err);
+      });
+  }
+
   clearAsyncStorage = async () => {
     try {
       await AsyncStorage.clear();
